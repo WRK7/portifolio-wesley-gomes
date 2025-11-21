@@ -8,13 +8,179 @@
 
     // Inicialização quando o DOM estiver pronto
     document.addEventListener('DOMContentLoaded', function() {
+        initPreloader();
+        initI18n();
         initSmoothScroll();
         initNavbarScroll();
         initAnimationsOnScroll();
         initActiveNavLinks();
         initMobileMenu();
         initBackToTop();
+        initExternalLinksLoading();
     });
+
+    /**
+     * Inicializa o pre-loader
+     */
+    function initPreloader() {
+        const preloader = document.getElementById('preloader');
+        const pageContent = document.querySelectorAll('.page-content');
+        
+        if (!preloader) return;
+
+        function hidePreloader() {
+            // Esconde o pre-loader
+            preloader.classList.add('hidden');
+            
+            // Mostra o conteúdo com fade-in
+            pageContent.forEach(function(element) {
+                element.classList.add('loaded');
+            });
+            
+            // Remove o pre-loader do DOM após a animação
+            setTimeout(function() {
+                preloader.style.display = 'none';
+            }, 500);
+        }
+
+        // Verifica se a página já está carregada (cache ou muito rápido)
+        if (document.readyState === 'complete') {
+            // Pequeno delay para mostrar a animação mesmo em cache
+            setTimeout(hidePreloader, 150);
+        } else {
+            // Aguarda o carregamento completo da página
+            window.addEventListener('load', function() {
+                // Pequeno delay para garantir que tudo está carregado
+                setTimeout(hidePreloader, 300);
+            });
+        }
+    }
+
+    /**
+     * Inicializa o sistema de i18n (internacionalização)
+     */
+    function initI18n() {
+        // Verifica se o objeto translations existe
+        if (typeof translations === 'undefined') {
+            console.warn('Translations não encontrado. Carregue o arquivo translations.js primeiro.');
+            return;
+        }
+
+        // Detecta idioma preferido do usuário
+        // Prioridade: 1) localStorage, 2) Idioma do navegador, 3) Português (padrão)
+        const savedLang = localStorage.getItem('portfolio-lang');
+        const browserLang = navigator.language || navigator.userLanguage;
+        
+        // Se tem idioma salvo, usa ele. Senão, detecta do navegador ou usa PT como padrão
+        let defaultLang = 'pt'; // Padrão: Português
+        if (savedLang) {
+            defaultLang = savedLang;
+        } else if (browserLang && browserLang.toLowerCase().startsWith('en')) {
+            defaultLang = 'en';
+        }
+        
+        // Define idioma atual
+        let currentLang = defaultLang;
+
+        /**
+         * Aplica traduções aos elementos
+         */
+        function applyTranslations(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            
+            elements.forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                
+                if (translations[lang] && translations[lang][key]) {
+                    let text = translations[lang][key];
+                    
+                    // Se a tradução contém HTML (tags), usa innerHTML
+                    // Caso contrário, usa textContent para evitar problemas de segurança
+                    if (text.includes('<') && text.includes('>')) {
+                        element.innerHTML = text;
+                    } else {
+                        element.textContent = text;
+                    }
+                }
+            });
+
+            // Atualiza atributos especiais (title, aria-label)
+            const titleElements = document.querySelectorAll('[data-i18n-title]');
+            titleElements.forEach(element => {
+                const key = element.getAttribute('data-i18n-title');
+                if (translations[lang] && translations[lang][key]) {
+                    element.setAttribute('title', translations[lang][key]);
+                }
+            });
+
+            // Atualiza o atributo lang do HTML
+            document.documentElement.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
+        }
+
+        /**
+         * Atualiza os botões de idioma
+         */
+        function updateLangButtons(lang) {
+            const langDisplay = document.getElementById('lang-display');
+            const langDisplayMobile = document.getElementById('lang-display-mobile');
+            
+            if (langDisplay) {
+                langDisplay.textContent = lang === 'pt' ? 'EN' : 'PT';
+            }
+            
+            if (langDisplayMobile) {
+                langDisplayMobile.textContent = lang === 'pt' ? 'English' : 'Português';
+            }
+        }
+
+        /**
+         * Troca o idioma
+         */
+        function changeLanguage(newLang) {
+            if (newLang !== 'pt' && newLang !== 'en') return;
+            
+            currentLang = newLang;
+            localStorage.setItem('portfolio-lang', newLang);
+            applyTranslations(newLang);
+            updateLangButtons(newLang);
+        }
+
+        // Botões de troca de idioma
+        const langToggle = document.getElementById('lang-toggle');
+        const langToggleMobile = document.getElementById('lang-toggle-mobile');
+
+        if (langToggle) {
+            langToggle.addEventListener('click', function() {
+                const newLang = currentLang === 'pt' ? 'en' : 'pt';
+                changeLanguage(newLang);
+            });
+        }
+
+        if (langToggleMobile) {
+            langToggleMobile.addEventListener('click', function() {
+                const newLang = currentLang === 'pt' ? 'en' : 'pt';
+                changeLanguage(newLang);
+                
+                // Fecha o menu mobile após trocar idioma
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu && mobileMenu.classList.contains('active')) {
+                    const menuBtn = document.getElementById('mobile-menu-btn');
+                    if (menuBtn) {
+                        menuBtn.click();
+                    }
+                }
+            });
+        }
+
+        // Aplica traduções iniciais
+        applyTranslations(currentLang);
+        updateLangButtons(currentLang);
+
+        // Exporta função para uso global se necessário
+        window.Portfolio = window.Portfolio || {};
+        window.Portfolio.changeLanguage = changeLanguage;
+        window.Portfolio.getCurrentLang = () => currentLang;
+    }
 
     /**
      * Configura scroll suave para links de navegação
@@ -232,6 +398,25 @@
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
+            });
+        });
+    }
+
+    /**
+     * Adiciona loading states aos links externos
+     */
+    function initExternalLinksLoading() {
+        const externalLinks = document.querySelectorAll('a[target="_blank"]');
+        
+        externalLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Adiciona classe de loading
+                this.classList.add('loading');
+                
+                // Remove o loading após um tempo (caso a página não abra imediatamente)
+                setTimeout(() => {
+                    this.classList.remove('loading');
+                }, 1000);
             });
         });
     }

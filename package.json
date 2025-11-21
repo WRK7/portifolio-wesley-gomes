@@ -1,0 +1,21 @@
+{
+  "name": "portifolio-wesley-gomes",
+  "version": "1.0.0",
+  "description": "Portfolio profissional de Wesley da Cruz Gomes",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.css --minify"
+  },
+  "keywords": [
+    "portfolio",
+    "tailwindcss",
+    "html",
+    "css"
+  ],
+  "author": "Wesley da Cruz Gomes",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
+
