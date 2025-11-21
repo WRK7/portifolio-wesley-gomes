@@ -36,11 +36,35 @@
     <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
         <div class="container mx-auto px-6 lg:px-12 py-6 flex justify-between items-center">
             <a href="#inicio" class="text-xl font-bold tracking-tight" aria-label="Início do portfólio">WRK7</a>
-            <div class="flex gap-10 text-sm font-medium">
+            
+            <!-- Menu Desktop -->
+            <div class="hidden md:flex gap-10 text-sm font-medium nav-desktop">
                 <a href="#sobre" class="hover-underline text-gray-600 hover:text-black">Sobre</a>
                 <a href="#experiencia" class="hover-underline text-gray-600 hover:text-black">Experiência</a>
                 <a href="#projetos" class="hover-underline text-gray-600 hover:text-black">Projetos</a>
                 <a href="#contato" class="hover-underline text-gray-600 hover:text-black">Contato</a>
+            </div>
+
+            <!-- Botão Hambúrguer (Mobile) -->
+            <button 
+                id="mobile-menu-btn" 
+                class="md:hidden flex flex-col gap-1.5 w-8 h-8 justify-center items-center focus:outline-none" 
+                aria-label="Abrir menu"
+                aria-expanded="false"
+            >
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden">
+            <div class="mobile-menu-content">
+                <a href="#sobre" class="mobile-menu-link">Sobre</a>
+                <a href="#experiencia" class="mobile-menu-link">Experiência</a>
+                <a href="#projetos" class="mobile-menu-link">Projetos</a>
+                <a href="#contato" class="mobile-menu-link">Contato</a>
             </div>
         </div>
     </nav>
@@ -80,53 +104,44 @@
             </div>
 
             <div class="grid lg:grid-cols-2 gap-16">
-                <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
-                    <p>
-                        Mais do que escrever código, eu construo <strong>ecossistemas de eficiência</strong>. Minha especialidade é identificar gargalos operacionais — especialmente em ambientes corporativos e jurídicos — e desenvolver soluções robustas que devolvem horas produtivas para a equipe.
-                    </p>
-                    <p>
-                        Com domínio avançado em <strong class="text-black">Python (Flask)</strong> e ferramentas de automação como <strong class="text-black">Playwright</strong>, desenvolvo desde <em>crawlers</em> de alta performance para varredura de dados até sistemas internos complexos para gestão de ativos e distribuição inteligente de tarefas.
-                    </p>
-                    <p>
-                        Meu diferencial é a visão sistêmica: não entrego apenas o software, mas garanto a integração segura com sistemas legados e a transformação de dados brutos em painéis de decisão estratégica.
-                    </p>
-                </div>
-
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="font-semibold text-sm tracking-wider mb-4 text-gray-400">COMPETÊNCIAS TÉCNICAS</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="tag">Python & Flask</span>
-                            <span class="tag">Web Scraping / Crawlers</span>
-                            <span class="tag">Playwright</span>
-                            <span class="tag">RPA & Automação</span>
-                            <span class="tag">SQL & Banco de Dados</span>
-                            <span class="tag">Integração de APIs</span>
-                            <span class="tag">JavaScript</span>
-                        </div>
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
+                        <p>
+                            Mais do que escrever código, eu construo <strong>ecossistemas de eficiência</strong>. Minha especialidade é identificar gargalos operacionais — especialmente em ambientes corporativos e jurídicos — e desenvolver soluções robustas que devolvem horas produtivas para a equipe.
+                        </p>
+                        <p>
+                            Com domínio avançado em <strong class="text-black">Python (Flask)</strong> e ferramentas de automação como <strong class="text-black">Playwright</strong>, desenvolvo desde <em>crawlers</em> de alta performance para varredura de dados até sistemas internos complexos para gestão de ativos e distribuição inteligente de tarefas.
+                        </p>
+                        <p>
+                            Minha trajetória inclui experiência em negociação e conciliação, o que me deu uma visão sistêmica privilegiada: não entrego apenas o software, mas garanto que ele resolva a dor real do negócio, integrando-se de forma segura com sistemas legados e transformando dados brutos em decisão estratégica.
+                        </p>
                     </div>
-
-                    <div>
-                        <h3 class="font-semibold text-sm tracking-wider mb-4 text-gray-400">FOCO DE ATUAÇÃO</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="tag">Otimização de Processos</span>
-                            <span class="tag">Arquitetura de Software</span>
-                            <span class="tag">Business Intelligence</span>
-                            <span class="tag">Segurança de Dados</span>
+    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="font-semibold text-sm tracking-wider mb-4 text-gray-400">COMPETÊNCIAS TÉCNICAS</h3>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="tag">Python & Flask</span>
+                                <span class="tag">Web Scraping / Crawlers</span>
+                                <span class="tag">Playwright</span>
+                                <span class="tag">RPA & Automação</span>
+                                <span class="tag">SQL (MariaDB)</span>
+                                <span class="tag">Integração de APIs</span>
+                                <span class="tag">JavaScript (ES6+)</span>
+                            </div>
                         </div>
-                    </div>
-
-                    <div>
-                        <h3 class="font-semibold text-sm tracking-wider mb-4 text-gray-400">ÁREAS DE INTERESSE</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="tag">Automação</span>
-                            <span class="tag">Data Analytics</span>
-                            <span class="tag">Machine Learning</span>
-                            <span class="tag">Process Optimization</span>
+    
+                        <div>
+                            <h3 class="font-semibold text-sm tracking-wider mb-4 text-gray-400">FOCO DE ATUAÇÃO</h3>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="tag">Otimização de Processos</span>
+                                <span class="tag">Arquitetura de Software</span>
+                                <span class="tag">Business Intelligence</span>
+                                <span class="tag">Engenharia de Prompt (IA)</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </section>
 
@@ -341,6 +356,18 @@
             </div>
         </div>
     </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <button 
+        id="back-to-top" 
+        class="back-to-top-btn"
+        aria-label="Voltar ao topo"
+        title="Voltar ao topo"
+    >
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 3L3 10H7V17H13V10H17L10 3Z" fill="currentColor"/>
+        </svg>
+    </button>
 
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
