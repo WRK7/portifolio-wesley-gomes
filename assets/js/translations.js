@@ -35,11 +35,12 @@ const translations = {
         exp_role1_desc1: "Responsável pela modernização tecnológica do escritório, utilizando <strong>Python e Flask</strong> para criar soluções internas.",
         exp_role1_desc2: "Desenvolvimento do <strong>Ecossistema Autonomus</strong> (RPA) para automação de cobranças e higienização de dados.",
         exp_role1_desc3: "Administração de banco de dados MariaDB e suporte à infraestrutura de software.",
-        exp_role2_title: "Conciliador",
-        exp_role2_company: "Portes Advogados",
-        exp_role2_period: "Mai 2025 — Ago 2025",
-        exp_role2_desc1: "Atuação direta na resolução de conflitos e negociação de dívidas.",
-        exp_role2_desc2: "Desenvolvimento de soft skills cruciais: comunicação assertiva, persuasão e entendimento das dores do negócio jurídico.",
+        exp_role2_title: "Desenvolvedor Full Stack",
+        exp_role2_company: "LandGrow",
+        exp_role2_period: "Jul 2024 — Nov 2025",
+        exp_role2_desc1: "Desenvolvimento full stack de soluções para consultoria empresarial, criando aplicações web completas do frontend ao backend.",
+        exp_role2_desc2: "Administração e otimização de bancos de dados, garantindo performance e integridade dos dados corporativos.",
+        exp_role2_desc3: "Implementação de funcionalidades end-to-end, desde a interface do usuário até a lógica de negócio e persistência de dados.",
         
         // Projetos
         projects_number: "03 — PROJETOS",
@@ -56,6 +57,12 @@ const translations = {
         project3_desc: "Aplicação Desktop Híbrida para gestão de RH. Combina a performance do Python com interface moderna Web. Possui sistema de notificações nativas (Windows), gestão de lembretes recorrentes e banco de dados local.",
         project3_impact: "IMPACTO",
         project3_impact_desc: "Gestão Centralizada (v5.2)",
+        projects_archive_title: "Arquivo de Projetos",
+        table_year: "Ano",
+        table_project: "Projeto",
+        table_context: "Contexto",
+        table_stack: "Stack",
+        table_link: "Link",
         
         // Contato
         contact_number: "04 — CONTATO",
@@ -110,11 +117,12 @@ const translations = {
         exp_role1_desc1: "Leading the firm’s technological modernization, using <strong>Python and Flask</strong> to build internal solutions.",
         exp_role1_desc2: "Development of the <strong>Autonomus Ecosystem</strong> (RPA) for automated debt collection and data cleansing.",
         exp_role1_desc3: "Administration of MariaDB databases and support for the software infrastructure.",
-        exp_role2_title: "Conciliator",
-        exp_role2_company: "Portes Advogados",
-        exp_role2_period: "May 2025 — Aug 2025",
-        exp_role2_desc1: "Direct work in conflict resolution and debt negotiation.",
-        exp_role2_desc2: "Development of key soft skills: assertive communication, persuasion, and a deep understanding of legal business pain points.",
+        exp_role2_title: "Full Stack Developer",
+        exp_role2_company: "LandGrow",
+        exp_role2_period: "Jul 2024 — Nov 2025",
+        exp_role2_desc1: "Full stack development of solutions for business consulting, creating complete web applications from frontend to backend.",
+        exp_role2_desc2: "Database administration and optimization, ensuring performance and data integrity for corporate systems.",
+        exp_role2_desc3: "End-to-end feature implementation, from user interface to business logic and data persistence.",
         
         // Projects (reservado para futura integração com i18n na seção de projetos)
         projects_number: "03 — PROJECTS",
@@ -131,6 +139,12 @@ const translations = {
         project3_desc: "Hybrid desktop app for HR management. Combines Python performance with a modern web UI, native Windows notifications, recurring reminders, and a local database.",
         project3_impact: "IMPACT",
         project3_impact_desc: "Centralized HR operations • Versioned, evolving internal tool",
+        projects_archive_title: "Project Archive",
+        table_year: "Year",
+        table_project: "Project",
+        table_context: "Context",
+        table_stack: "Stack",
+        table_link: "Link",
         
         // Contact
         contact_number: "04 — CONTACT",

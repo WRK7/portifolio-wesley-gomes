@@ -6,33 +6,18 @@
     <meta name="description" content="Portfolio profissional de Wesley da Cruz Gomes - Desenvolvedor especializado em automação de processos e desenvolvimento web">
     <meta name="keywords" content="desenvolvedor, automação, Python, Flask, RPA, web development, portfolio">
     <meta name="author" content="Wesley da Cruz Gomes">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Portfolio Profissional - Wesley da Cruz Gomes">
-    <meta property="og:description" content="Desenvolvedor especializado em automação de processos e desenvolvimento web">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Portfolio Profissional - Wesley da Cruz Gomes">
-    <meta property="twitter:description" content="Desenvolvedor especializado em automação de processos e desenvolvimento web">
-    
     <title>Wesley da Cruz Gomes | WRK7 Developer</title>
     
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.svg">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- CSS Customizado -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/animations.css">
 </head>
 <body class="antialiased">
 
-    <!-- Pre-loader -->
     <div id="preloader" class="preloader">
         <div class="preloader-content">
             <div class="preloader-spinner"></div>
@@ -40,56 +25,35 @@
         </div>
     </div>
 
-    <!-- Navegação -->
     <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 page-content">
         <div class="container mx-auto px-6 lg:px-12 py-6 flex justify-between items-center">
             <a href="#inicio" class="text-xl font-bold tracking-tight" aria-label="Início do portfólio">WRK7</a>
             
-            <!-- Menu Desktop -->
             <div class="hidden md:flex gap-10 text-sm font-medium nav-desktop items-center">
                 <a href="#sobre" class="hover-underline text-gray-600 hover:text-black" data-i18n="nav_about">Sobre</a>
                 <a href="#experiencia" class="hover-underline text-gray-600 hover:text-black" data-i18n="nav_experience">Experiência</a>
                 <a href="#projetos" class="hover-underline text-gray-600 hover:text-black" data-i18n="nav_projects">Projetos</a>
                 <a href="#contato" class="hover-underline text-gray-600 hover:text-black" data-i18n="nav_contact">Contato</a>
-                
-                <!-- Botão de Idioma -->
-                <button 
-                    id="lang-toggle" 
-                    class="ml-4 px-3 py-1.5 border border-gray-300 rounded text-xs font-medium hover:bg-black hover:text-white hover:border-black transition-colors"
-                    aria-label="Alterar idioma"
-                >
+                <button id="lang-toggle" class="ml-4 px-3 py-1.5 border border-gray-300 rounded text-xs font-medium hover:bg-black hover:text-white hover:border-black transition-colors">
                     <span id="lang-display">EN</span>
                 </button>
             </div>
 
-            <!-- Botão Hambúrguer (Mobile) -->
-            <button 
-                id="mobile-menu-btn" 
-                class="md:hidden flex flex-col gap-1.5 w-8 h-8 justify-center items-center focus:outline-none" 
-                aria-label="Abrir menu"
-                aria-expanded="false"
-            >
+            <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 w-8 h-8 justify-center items-center focus:outline-none">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </button>
         </div>
 
-        <!-- Menu Mobile -->
         <div id="mobile-menu" class="mobile-menu hidden md:hidden">
             <div class="mobile-menu-content">
                 <a href="#sobre" class="mobile-menu-link" data-i18n="nav_about">Sobre</a>
                 <a href="#experiencia" class="mobile-menu-link" data-i18n="nav_experience">Experiência</a>
                 <a href="#projetos" class="mobile-menu-link" data-i18n="nav_projects">Projetos</a>
                 <a href="#contato" class="mobile-menu-link" data-i18n="nav_contact">Contato</a>
-                
-                <!-- Botão de Idioma Mobile -->
                 <div class="border-t border-gray-200 pt-4 mt-4">
-                    <button 
-                        id="lang-toggle-mobile" 
-                        class="w-full px-4 py-2 border-2 border-black rounded text-sm font-medium hover:bg-black hover:text-white transition-colors"
-                        aria-label="Alterar idioma"
-                    >
+                    <button id="lang-toggle-mobile" class="w-full px-4 py-2 border-2 border-black rounded text-sm font-medium hover:bg-black hover:text-white transition-colors">
                         <span id="lang-display-mobile">English</span>
                     </button>
                 </div>
@@ -97,7 +61,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="inicio" class="min-h-screen flex items-center pt-24 px-6 lg:px-12 page-content">
         <div class="container mx-auto max-w-5xl">
             <div class="mb-6 slide-in">
@@ -123,7 +86,6 @@
         </div>
     </section>
 
-    <!-- Sobre -->
     <section id="sobre" class="py-32 px-6 lg:px-12 bg-gray-50">
         <div class="container mx-auto max-w-5xl">
             <div class="mb-16">
@@ -133,37 +95,36 @@
             <div class="grid lg:grid-cols-5 gap-12 items-start">
                 
                 <div class="lg:col-span-3 space-y-6 text-lg text-gray-600 leading-relaxed">
-                    <p data-i18n="about_para1">
+                    <p>
                         Mais do que escrever código, eu construo <strong>ecossistemas de eficiência</strong>. Minha especialidade é identificar gargalos operacionais — especialmente em ambientes corporativos e jurídicos — e desenvolver soluções robustas que devolvem horas produtivas para a equipe.
                     </p>
-                    <p data-i18n="about_para2">
-                        Com domínio avançado em <strong class="text-black">Python (Flask)</strong> e <strong class="text-black">Playwright</strong>, atuo em duas frentes: criação de <strong>pipelines de dados (ETL)</strong> — transformando planilhas e CSVs em Dashboards de decisão — e desenvolvimento de sistemas de automação para varredura e distribuição inteligente de tarefas.
+                    <p>
+                        Com domínio avançado em <strong class="text-black">Python (Flask)</strong> e <strong class="text-black">Playwright</strong>, atuo em duas frentes: criação de <strong>pipelines de dados (ETL)</strong> e desenvolvimento de sistemas de automação para varredura e distribuição inteligente de tarefas.
                     </p>
-                    <p data-i18n="about_para3">
+                    <p>
                         Minha trajetória inclui experiência em negociação e conciliação, o que me deu uma visão sistêmica privilegiada: não entrego apenas o software, mas garanto que ele resolva a dor real do negócio, integrando-se de forma segura com sistemas legados e transformando dados brutos em decisão estratégica.
                     </p>
                 </div>
 
                 <div class="lg:col-span-2 space-y-8">
-                    
                     <div>
-                        <h3 class="font-semibold text-sm tracking-wider mb-4 text-gray-400">COMPETÊNCIAS TÉCNICAS</h3>
+                        <h3 class="font-semibold text-sm tracking-wider mb-4 text-gray-400" data-i18n="about_tech_title">COMPETÊNCIAS TÉCNICAS</h3>
                         <div class="flex flex-wrap gap-3">
                             <span class="tag">Python & Flask</span>
                             <span class="tag">RPA & Playwright</span>
                             <span class="tag">SQL (MariaDB)</span>
                             <span class="tag">Segurança & Redes (Cisco)</span>
-                            <span class="tag">JavaScript (ES6+)</span>
                             <span class="tag">Git / GitHub</span>
+                            <span class="tag">JavaScript (ES6+)</span>
                             <span class="tag">PyWebView</span>
                         </div>
                     </div>
 
                     <div>
-                        <h3 class="font-semibold text-sm tracking-wider mb-4 text-gray-400">FOCO DE ATUAÇÃO</h3>
+                        <h3 class="font-semibold text-sm tracking-wider mb-4 text-gray-400" data-i18n="about_focus_title">FOCO DE ATUAÇÃO</h3>
                         <div class="flex flex-wrap gap-3">
                             <span class="tag">Otimização de Processos</span>
-                            <span class="tag">Engenharia de Dados (ETL)</span>
+                            <span class="tag">Integração de Sistemas</span>
                             <span class="tag">Business Intelligence</span>
                             <span class="tag">SaaS Interno</span>
                         </div>
@@ -172,25 +133,24 @@
                     <div>
                         <h3 class="font-semibold text-sm tracking-wider mb-4 text-gray-400">SOFT SKILLS</h3>
                         <div class="flex flex-wrap gap-3">
-                            <span class="tag">Negociação & Mediação</span>
-                            <span class="tag">Comunicação Assertiva</span>
-                            <span class="tag">Resolução de Problemas</span>
-                            <span class="tag">Autonomia</span>
-                            <span class="tag">Visão de Negócio</span>
                             <span class="tag">Trabalho em Equipe</span>
-                            <span class="tag">Gestão de Prazos & Entregas</span>
+                            <span class="tag">Negociação & Mediação</span>
+                            <span class="tag">Gestão de Prazos</span>
+                            <span class="tag">Comunicação Assertiva</span>
                             <span class="tag">Foco no Cliente</span>
+                            <span class="tag">Autonomia</span>
                         </div>
                     </div>
-
                 </div>
+            </div>
+        </div>
     </section>
 
     <section id="experiencia" class="py-32 px-6 lg:px-12">
         <div class="container mx-auto max-w-5xl">
             <div class="mb-16">
-                <span class="section-number" data-i18n="exp_number">02 — EXPERIÊNCIA</span>
-                <h2 class="text-4xl lg:text-5xl font-bold mt-4 mb-6" data-i18n="exp_title">Minha Trajetória</h2>
+                <span class="section-number">02 — EXPERIÊNCIA</span>
+                <h2 class="text-4xl lg:text-5xl font-bold mt-4 mb-6">Minha Trajetória</h2>
             </div>
 
             <div class="space-y-12">
@@ -198,23 +158,19 @@
                 <div class="border-l-2 border-gray-300 pl-8 hover:border-black transition-colors">
                     <div class="flex justify-between items-start mb-4">
                         <div>
-                            <h3 class="text-2xl font-bold" data-i18n="exp_role1_title">Suporte de T.I. & Desenvolvedor Jr.</h3>
-                            <p class="text-gray-600 mt-1" data-i18n="exp_role1_company">Portes Advogados</p>
+                            <h3 class="text-2xl font-bold">Co-Founder & Tech Lead</h3>
+                            <p class="text-gray-600 mt-1">CodeZyro</p>
                         </div>
-                        <span class="text-sm text-gray-500 font-medium" data-i18n="exp_role1_period">Set 2025 — Presente</span>
+                        <span class="text-sm text-gray-500 font-medium">2025 — Presente</span>
                     </div>
                     <ul class="space-y-3 text-gray-600">
                         <li class="flex gap-3">
                             <span class="text-black mt-1">•</span>
-                            <span data-i18n="exp_role1_desc1">Responsável pela modernização tecnológica do escritório, utilizando <strong>Python e Flask</strong> para criar soluções internas.</span>
+                            <span>Liderança técnica e definição de arquitetura para novos produtos SaaS.</span>
                         </li>
                         <li class="flex gap-3">
                             <span class="text-black mt-1">•</span>
-                            <span data-i18n="exp_role1_desc2">Desenvolvimento do <strong>Ecossistema Autonomus</strong> (RPA) para automação de cobranças e higienização de dados.</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-black mt-1">•</span>
-                            <span data-i18n="exp_role1_desc3">Administração de banco de dados MariaDB e suporte à infraestrutura de software.</span>
+                            <span>Desenvolvimento Full-Stack (Python/Flask) e estratégia de go-to-market.</span>
                         </li>
                     </ul>
                 </div>
@@ -222,19 +178,43 @@
                 <div class="border-l-2 border-gray-300 pl-8 hover:border-black transition-colors">
                     <div class="flex justify-between items-start mb-4">
                         <div>
-                            <h3 class="text-2xl font-bold" data-i18n="exp_role2_title">Conciliador</h3>
-                            <p class="text-gray-600 mt-1" data-i18n="exp_role2_company">Portes Advogados</p>
+                            <h3 class="text-2xl font-bold">Suporte de T.I. & Desenvolvedor Jr.</h3>
+                            <p class="text-gray-600 mt-1">Portes Advogados</p>
                         </div>
-                        <span class="text-sm text-gray-500 font-medium" data-i18n="exp_role2_period">Mai 2025 — Ago 2025</span>
+                        <span class="text-sm text-gray-500 font-medium">Set 2025 — Presente</span>
                     </div>
                     <ul class="space-y-3 text-gray-600">
                         <li class="flex gap-3">
                             <span class="text-black mt-1">•</span>
-                            <span data-i18n="exp_role2_desc1">Atuação direta na resolução de conflitos e negociação de dívidas.</span>
+                            <span>Responsável pela modernização tecnológica, desenvolvendo +10 soluções de automação e sistemas web internos.</span>
                         </li>
                         <li class="flex gap-3">
                             <span class="text-black mt-1">•</span>
-                            <span data-i18n="exp_role2_desc2">Desenvolvimento de soft skills cruciais: comunicação assertiva, persuasão e entendimento das dores do negócio jurídico.</span>
+                            <span>Criação do Ecossistema Autonomus (RPA) e administração de bancos de dados.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="border-l-2 border-gray-300 pl-8 hover:border-black transition-colors">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold">Desenvolvedor Full Stack</h3>
+                            <p class="text-gray-600 mt-1">LandGrow</p>
+                        </div>
+                        <span class="text-sm text-gray-500 font-medium">Jul 2024 — Nov 2025</span>
+                    </div>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex gap-3">
+                            <span class="text-black mt-1">•</span>
+                            <span>Desenvolvimento full stack de soluções para consultoria empresarial, criando aplicações web completas do frontend ao backend.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-black mt-1">•</span>
+                            <span>Administração e otimização de bancos de dados, garantindo performance e integridade dos dados corporativos.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-black mt-1">•</span>
+                            <span>Implementação de funcionalidades end-to-end, desde a interface do usuário até a lógica de negócio e persistência de dados.</span>
                         </li>
                     </ul>
                 </div>
@@ -243,131 +223,174 @@
         </div>
     </section>
 
-    <!-- Projetos -->
     <section id="projetos" class="py-32 px-6 lg:px-12 bg-gray-50">
         <div class="container mx-auto max-w-6xl">
             <div class="mb-16">
-                <span class="section-number" data-i18n="projects_number">03 — PROJETOS</span>
-                <h2 class="text-4xl lg:text-5xl font-bold mt-4 mb-6" data-i18n="projects_title">Trabalhos selecionados</h2>
+                <span class="section-number">03 — PROJETOS</span>
+                <h2 class="text-4xl lg:text-5xl font-bold mt-4 mb-6">Trabalhos selecionados</h2>
             </div>
 
-            <div class="project-grid">
+            <div class="project-grid mb-20">
                 
                 <div class="bg-white p-8 card-border hover-lift flex flex-col justify-between">
                     <div>
-                        <div class="w-full h-48 bg-gray-100 mb-6 flex items-center justify-center text-6xl rounded-lg">
-                            🤖
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3" data-i18n="project1_title">Ecossistema Autonomus & RPA</h3>
-                        <p class="text-gray-600 leading-relaxed mb-4" data-i18n="project1_desc">
-                            Solução enterprise de automação para o setor jurídico. Robôs realizam higienização de dados e envio massivo de cobranças via WhatsApp, gerenciados por painel administrativo próprio.
+                        <div class="w-full h-48 bg-gray-100 mb-6 flex items-center justify-center text-6xl rounded-lg">🤖</div>
+                        <h3 class="text-2xl font-bold mb-3">Ecossistema Autonomus & RPA</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Solução enterprise de automação para o setor jurídico. Robôs realizam higienização de dados e processos massivos, gerenciados por painel próprio.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
                             <span class="text-xs px-3 py-1 bg-black text-white font-medium rounded-full">Python</span>
                             <span class="text-xs px-3 py-1 bg-gray-200 text-gray-700 font-medium rounded-full">Flask</span>
                             <span class="text-xs px-3 py-1 bg-gray-200 text-gray-700 font-medium rounded-full">RPA</span>
-                            <span class="text-xs px-3 py-1 bg-gray-200 text-gray-700 font-medium rounded-full">MariaDB</span>
                         </div>
                     </div>
-                    
                     <div class="border-t border-gray-200 pt-6 mt-auto">
                         <div class="flex justify-between items-center mb-4">
                             <div>
-                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider" data-i18n="project1_impact">Impacto</p>
-                                <p class="text-sm font-medium text-gray-900" data-i18n="project1_impact_desc">Envio 100% automatizado</p>
+                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Impacto</p>
+                                <p class="text-sm font-medium text-gray-900">Eficiência Operacional</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
-                            <a 
-                                href="https://www.notion.so/AUTOMATOUS-Ecossistema-de-Orquestra-o-RPA-2b2c5f594bea8070be84d7fd0bced80b" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                class="text-sm font-bold border-b-2 border-black pb-1 hover:text-gray-600 hover:border-gray-600 transition-colors"
-                            >
-                                Ver Case Study ↗
-                            </a>
+                            <a href="#" class="text-sm font-bold border-b-2 border-black pb-1 hover:text-gray-600 transition-colors">Ver Case Study ↗</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-white p-8 card-border hover-lift flex flex-col justify-between">
                     <div>
-                        <div class="w-full h-48 bg-gray-100 mb-6 flex items-center justify-center text-6xl rounded-lg">
-                            📊
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3" data-i18n="project2_title">Robô CEDAE & Analytics</h3>
-                        <p class="text-gray-600 leading-relaxed mb-4" data-i18n="project2_desc">
-                            Engenharia de dados aplicada. Pipeline que ingere planilhas financeiras (CSV), realiza tratamento (ETL) e projeta KPIs estratégicos em dashboards para a diretoria.
+                        <div class="w-full h-48 bg-gray-100 mb-6 flex items-center justify-center text-6xl rounded-lg">⚙️</div>
+                        <h3 class="text-2xl font-bold mb-3">Distribuidor Inteligente CRM</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Algoritmo de balanceamento de carga para a Rede Frota. Distribui automaticamente leads entre vendedores no CRM via regras de negócio.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="text-xs px-3 py-1 bg-black text-white font-medium rounded-full">Python (Pandas)</span>
-                            <span class="text-xs px-3 py-1 bg-gray-200 text-gray-700 font-medium rounded-full">ETL</span>
-                            <span class="text-xs px-3 py-1 bg-gray-200 text-gray-700 font-medium rounded-full">Chart.js</span>
+                            <span class="text-xs px-3 py-1 bg-black text-white font-medium rounded-full">Python</span>
+                            <span class="text-xs px-3 py-1 bg-gray-200 text-gray-700 font-medium rounded-full">Integração CRM</span>
                         </div>
                     </div>
-
                     <div class="border-t border-gray-200 pt-6 mt-auto">
                         <div class="flex justify-between items-center mb-4">
                             <div>
-                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider" data-i18n="project2_impact">Impacto</p>
-                                <p class="text-sm font-medium text-gray-900" data-i18n="project2_impact_desc">Dados brutos → Decisão</p>
+                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Impacto</p>
+                                <p class="text-sm font-medium text-gray-900">Otimização de Vendas</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
-                            <a 
-                                href="https://www.notion.so/CEDAE-Automation-Ecosystem-2b5c5f594bea80bd9340d150a617a015" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                class="text-sm font-bold border-b-2 border-black pb-1 hover:text-gray-600 hover:border-gray-600 transition-colors"
-                            >
-                                Ver Case Study ↗
-                            </a>
+                            <a href="#" class="text-sm font-bold border-b-2 border-black pb-1 hover:text-gray-600 transition-colors">Ver Case Study ↗</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-white p-8 card-border hover-lift flex flex-col justify-between">
                     <div>
-                        <div class="w-full h-48 bg-gray-100 mb-6 flex items-center justify-center text-6xl rounded-lg">
-                            🖥️
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3" data-i18n="project3_title">RH Manager Desktop</h3>
-                        <p class="text-gray-600 leading-relaxed mb-4" data-i18n="project3_desc">
-                            Aplicação Desktop Híbrida para gestão de RH. Combina a performance do Python com interface moderna Web. Possui sistema de notificações nativas (Windows), gestão de lembretes recorrentes e banco de dados local.
+                        <div class="w-full h-48 bg-gray-100 mb-6 flex items-center justify-center text-6xl rounded-lg">🖥️</div>
+                        <h3 class="text-2xl font-bold mb-3">RH Manager Desktop</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Aplicação Desktop Híbrida para gestão de RH. Combina performance Python com interface Web, notificações nativas e banco local.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
                             <span class="text-xs px-3 py-1 bg-black text-white font-medium rounded-full">Python 3.13</span>
                             <span class="text-xs px-3 py-1 bg-gray-200 text-gray-700 font-medium rounded-full">PyWebView</span>
                             <span class="text-xs px-3 py-1 bg-gray-200 text-gray-700 font-medium rounded-full">SQLite</span>
-                            <span class="text-xs px-3 py-1 bg-gray-200 text-gray-700 font-medium rounded-full">Plyer</span>
                         </div>
                     </div>
-
                     <div class="border-t border-gray-200 pt-6 mt-auto">
                         <div class="flex justify-between items-center mb-4">
                             <div>
-                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider" data-i18n="project3_impact">Impacto</p>
-                                <p class="text-sm font-medium text-gray-900" data-i18n="project3_impact_desc">Gestão Centralizada (v5.2)</p>
+                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Impacto</p>
+                                <p class="text-sm font-medium text-gray-900">Gestão Centralizada (v5.2)</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
-                            <a 
-                                href="https://www.notion.so/RH-Manager-Desktop-App-2b8c5f594bea80d4bd1ce4e5b80fd092" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                class="text-sm font-bold border-b-2 border-black pb-1 hover:text-gray-600 hover:border-gray-600 transition-colors"
-                            >
-                                Ver Case Study ↗
-                            </a>
+                            <a href="#" class="text-sm font-bold border-b-2 border-black pb-1 hover:text-gray-600 transition-colors">Ver Case Study ↗</a>
                         </div>
                     </div>
                 </div>
 
             </div>
+
+            <div class="mt-24 slide-in">
+                <h3 class="text-2xl font-bold mb-8">Arquivo de Projetos</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse min-w-[600px]">
+                        <thead>
+                            <tr class="border-b border-gray-200 text-sm text-gray-400">
+                                <th class="py-4 pr-4 font-medium w-24">Ano</th>
+                                <th class="py-4 pr-4 font-medium">Projeto</th>
+                                <th class="py-4 pr-4 font-medium w-1/4">Contexto</th>
+                                <th class="py-4 pr-4 font-medium hidden md:table-cell">Stack</th>
+                                <th class="py-4 pl-4 font-medium w-24 text-right">Link</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm font-medium text-gray-600">
+                            
+                            <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors group">
+                                <td class="py-4 pr-4 text-gray-400">2025</td>
+                                <td class="py-4 pr-4 font-bold text-gray-900 group-hover:text-blue-600">CodeZyro SaaS Platform</td>
+                                <td class="py-4 pr-4 text-black font-bold">CodeZyro 🚀</td>
+                                <td class="py-4 pr-4 hidden md:table-cell text-xs">
+                                    <span class="mr-2">Python</span> <span class="mr-2">React</span> <span>AWS</span>
+                                </td>
+                                <td class="py-4 pl-4 text-right"><a href="#" class="hover:text-blue-600">Em Breve 🔒</a></td>
+                            </tr>
+
+                            <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors group">
+                                <td class="py-4 pr-4 text-gray-400">2025</td>
+                                <td class="py-4 pr-4 font-bold text-gray-900 group-hover:text-blue-600">Portes Oficial (Refactor)</td>
+                                <td class="py-4 pr-4">Portes Advogados</td>
+                                <td class="py-4 pr-4 hidden md:table-cell text-xs">
+                                    <span class="mr-2">Flask</span> <span class="mr-2">Tailwind</span> <span>SEO</span>
+                                </td>
+                                <td class="py-4 pl-4 text-right"><a href="https://portes.com.br" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">Visitar ↗</a></td>
+                            </tr>
+
+                            <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors group">
+                                <td class="py-4 pr-4 text-gray-400">2025</td>
+                                <td class="py-4 pr-4 font-bold text-gray-900 group-hover:text-blue-600">ATS Banco de Talentos</td>
+                                <td class="py-4 pr-4">Portes Advogados</td>
+                                <td class="py-4 pr-4 hidden md:table-cell text-xs">
+                                    <span class="mr-2">Flask</span> <span class="mr-2">SQLAlchemy</span> <span>Security</span>
+                                </td>
+                                <td class="py-4 pl-4 text-right"><span class="text-gray-400">Interno 🔒</span></td>
+                            </tr>
+
+                            <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors group">
+                                <td class="py-4 pr-4 text-gray-400">2024</td>
+                                <td class="py-4 pr-4 font-bold text-gray-900 group-hover:text-blue-600">Automação Diário Oficial</td>
+                                <td class="py-4 pr-4">Portes Advogados</td>
+                                <td class="py-4 pr-4 hidden md:table-cell text-xs">
+                                    <span class="mr-2">Scrapy</span> <span class="mr-2">Regex</span>
+                                </td>
+                                <td class="py-4 pl-4 text-right"><span class="text-gray-400">Interno 🔒</span></td>
+                            </tr>
+
+                             <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors group">
+                                <td class="py-4 pr-4 text-gray-400">2024</td>
+                                <td class="py-4 pr-4 font-bold text-gray-900 group-hover:text-blue-600">Bot de Higienização</td>
+                                <td class="py-4 pr-4">Portes Advogados</td>
+                                <td class="py-4 pr-4 hidden md:table-cell text-xs">
+                                    <span class="mr-2">Pandas</span> <span class="mr-2">Excel</span>
+                                </td>
+                                <td class="py-4 pl-4 text-right"><span class="text-gray-400">Interno 🔒</span></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <p class="text-gray-500 mb-4 text-sm">Quer ver o código fonte?</p>
+                <a href="https://github.com/WRK7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-black hover:text-white transition-all rounded-full text-sm font-bold tracking-wide">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                    Acessar GitHub
+                </a>
+            </div>
         </div>
     </section>
-
-    <!-- Contato -->
+    
     <section id="contato" class="py-32 px-6 lg:px-12">
         <div class="container mx-auto max-w-5xl">
             <div class="mb-16">
@@ -383,32 +406,30 @@
                     </p>
                     
                     <div class="space-y-6">
-                        <a href="mailto:wesley.cruz.dev@gmail.com" class="flex items-center gap-4 group" aria-label="Enviar email">
+                        <a href="mailto:wesley.cruz.dev@gmail.com" class="flex items-center gap-4 group">
                             <div class="w-12 h-12 border-2 border-black flex items-center justify-center group-hover:bg-black transition-colors">
-                                <span class="text-xl group-hover:invert" aria-hidden="true">📧</span>
+                                <span class="text-xl group-hover:invert">📧</span>
                             </div>
                             <div>
-                                <p class="font-semibold group-hover:underline" data-i18n="contact_email_label">Email</p>
+                                <p class="font-semibold group-hover:underline">Email</p>
                                 <p class="text-sm text-gray-600">wesley.cruz.dev@gmail.com</p>
                             </div>
                         </a>
-
-                        <a href="https://www.linkedin.com/in/wesley-da-cruz-gomes-606697355/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 group" aria-label="Perfil no LinkedIn">
+                        <a href="https://www.linkedin.com/in/wesley-da-cruz-gomes-606697355/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 group">
                             <div class="w-12 h-12 border-2 border-black flex items-center justify-center group-hover:bg-black transition-colors">
-                                <span class="text-xl group-hover:invert" aria-hidden="true">💼</span>
+                                <span class="text-xl group-hover:invert">💼</span>
                             </div>
                             <div>
-                                <p class="font-semibold group-hover:underline" data-i18n="contact_linkedin_label">LinkedIn</p>
+                                <p class="font-semibold group-hover:underline">LinkedIn</p>
                                 <p class="text-sm text-gray-600">linkedin.com/in/wesley-da-cruz-gomes</p>
                             </div>
                         </a>
-
-                        <a href="https://github.com/wRK7" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 group" aria-label="Perfil no GitHub">
+                        <a href="https://github.com/wRK7" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 group">
                             <div class="w-12 h-12 border-2 border-black flex items-center justify-center group-hover:bg-black transition-colors">
-                                <span class="text-xl group-hover:invert" aria-hidden="true">💻</span>
+                                <span class="text-xl group-hover:invert">💻</span>
                             </div>
                             <div>
-                                <p class="font-semibold group-hover:underline" data-i18n="contact_github_label">GitHub</p>
+                                <p class="font-semibold group-hover:underline">GitHub</p>
                                 <p class="text-sm text-gray-600">github.com/wRK7</p>
                             </div>
                         </a>
@@ -427,7 +448,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-12 px-6 lg:px-12 border-t border-gray-200">
         <div class="container mx-auto max-w-5xl">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
@@ -437,22 +457,11 @@
         </div>
     </footer>
 
-    <!-- Botão Voltar ao Topo -->
-    <button 
-        id="back-to-top" 
-        class="back-to-top-btn"
-        aria-label="Voltar ao topo"
-        data-i18n-title="back_to_top"
-        title="Voltar ao topo"
-    >
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 3L3 10H7V17H13V10H17L10 3Z" fill="currentColor"/>
-        </svg>
+    <button id="back-to-top" class="back-to-top-btn" title="Voltar ao topo">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3L3 10H7V17H13V10H17L10 3Z" fill="currentColor"/></svg>
     </button>
 
-    <!-- JavaScript -->
     <script src="assets/js/translations.js"></script>
     <script src="assets/js/portfolio.js"></script>
 </body>
 </html>
-
