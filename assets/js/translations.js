@@ -134,7 +134,7 @@ const translations = {
         
         // Footer
         footer_copyright: "© 2025 Wesley da Cruz Gomes. Powered by <strong>WRK7</strong>.",
-        footer_made: "Desenvolvido com dedicação e café ☕",
+        footer_made: "Desenvolvido com dedicação e chá 🍵",
         
         // Botão voltar ao topo
         back_to_top: "Voltar ao topo",
@@ -274,7 +274,7 @@ const translations = {
         
         // Footer
         footer_copyright: "© 2025 Wesley da Cruz Gomes. Powered by <strong>WRK7</strong>.",
-        footer_made: "Made with dedication and coffee ☕",
+        footer_made: "Made with dedication and tea 🍵",
         
         // Back to top button
         back_to_top: "Back to top",
@@ -413,7 +413,7 @@ const translations = {
         
         // Footer
         footer_copyright: "© 2025 Wesley da Cruz Gomes. Powered by <strong>WRK7</strong>.",
-        footer_made: "Desarrollado con dedicación y café ☕",
+        footer_made: "Desarrollado con dedicación y té 🍵",
         
         // Botón volver al inicio
         back_to_top: "Volver al inicio",
