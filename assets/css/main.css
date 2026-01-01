@@ -13,7 +13,8 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    /* Scroll controlado via JavaScript para melhor performance */
+    scroll-behavior: auto;
 }
 
 body {
@@ -45,10 +46,12 @@ body::before {
         linear-gradient(90deg, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
         linear-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px);
     background-size: 60px 60px;
-    animation: backgroundMove 25s linear infinite;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.4;
+    opacity: 0.3;
+    /* Removida animação para melhor performance */
+    will-change: auto;
+    transform: translateZ(0);
 }
 
 body::after {
@@ -63,14 +66,16 @@ body::after {
         radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.03) 0%, transparent 60%),
         radial-gradient(circle at 40% 20%, rgba(0, 0, 0, 0.03) 0%, transparent 60%),
         radial-gradient(circle at 60% 70%, rgba(0, 0, 0, 0.02) 0%, transparent 50%);
-    animation: backgroundGradient 20s ease-in-out infinite alternate;
     pointer-events: none;
     z-index: 0;
+    /* Removida animação para melhor performance */
+    will-change: auto;
+    transform: translateZ(0);
 }
 
 section.bg-gray-50 {
-    background-color: rgba(249, 250, 251, 0.95);
-    backdrop-filter: blur(1px);
+    background-color: rgba(249, 250, 251, 0.97);
+    /* Removido backdrop-filter para melhor performance */
 }
 
 /* ============================================
@@ -426,32 +431,7 @@ a[target="_blank"].loading::after {
     }
 }
 
-@keyframes backgroundMove {
-    0% {
-        transform: translate(0, 0);
-    }
-    50% {
-        transform: translate(30px, 30px);
-    }
-    100% {
-        transform: translate(60px, 60px);
-    }
-}
-
-@keyframes backgroundGradient {
-    0% {
-        transform: translate(0, 0) scale(1) rotate(0deg);
-        opacity: 0.6;
-    }
-    50% {
-        transform: translate(3%, 3%) scale(1.05) rotate(2deg);
-        opacity: 0.8;
-    }
-    100% {
-        transform: translate(6%, 6%) scale(1.1) rotate(0deg);
-        opacity: 0.7;
-    }
-}
+/* Animações de background removidas para melhor performance */
 
 /* ============================================
    RESPONSIVE ADJUSTMENTS

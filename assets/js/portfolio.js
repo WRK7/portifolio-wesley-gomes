@@ -17,13 +17,15 @@
             };
         },
 
-        throttle(fn, limit = 16) {
+        throttle(fn, limit = 100) {
             let lastRun = 0;
+            let rafId = null;
             return (...args) => {
                 const now = Date.now();
                 if (now - lastRun >= limit) {
                     lastRun = now;
-                    fn.apply(this, args);
+                    if (rafId) cancelAnimationFrame(rafId);
+                    rafId = requestAnimationFrame(() => fn.apply(this, args));
                 }
             };
         },
@@ -32,11 +34,20 @@
             return window.pageYOffset || document.documentElement.scrollTop;
         },
 
-        scrollToElement(element, offset = 80) {
+        // Scroll suave (usado pelo botão voltar ao topo)
+        scrollToElementSmooth(element, offset = 80) {
             if (!element) return;
             const elementPosition = element.offsetTop;
             const offsetPosition = elementPosition - offset;
             window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        },
+
+        // Scroll instantâneo - efeito de "salto" (troca de página)
+        scrollToElementInstant(element, offset = 80) {
+            if (!element) return;
+            const elementPosition = element.offsetTop;
+            const offsetPosition = elementPosition - offset;
+            window.scrollTo({ top: offsetPosition, behavior: 'instant' });
         },
 
         isInViewport(element, threshold = 0.1) {
@@ -59,10 +70,12 @@
 
         detectLanguage() {
             const saved = localStorage.getItem('portfolio-lang');
-            if (saved) return saved;
+            if (saved && ['pt', 'en', 'es'].includes(saved)) return saved;
             
             const browserLang = (navigator.language || navigator.userLanguage).toLowerCase();
-            return browserLang.startsWith('en') ? 'en' : 'pt';
+            if (browserLang.startsWith('en')) return 'en';
+            if (browserLang.startsWith('es')) return 'es';
+            return 'pt';
         }
 
         async init() {
@@ -133,6 +146,7 @@
         init() {
             this.applyTranslations(this.currentLang);
             this.setupLanguageToggle();
+            this.updateButtonColors(this.currentLang);
         }
 
         applyTranslations(lang) {
@@ -158,27 +172,83 @@
                 if (text) el.setAttribute('title', text);
             });
 
-            document.documentElement.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
+            const langMap = {
+                'pt': 'pt-BR',
+                'en': 'en',
+                'es': 'es'
+            };
+            document.documentElement.setAttribute('lang', langMap[lang] || 'pt-BR');
         }
 
         changeLanguage(newLang) {
-            if (!['pt', 'en'].includes(newLang)) return;
+            if (!['pt', 'en', 'es'].includes(newLang)) return;
             this.currentLang = newLang;
             localStorage.setItem('portfolio-lang', newLang);
             this.applyTranslations(newLang);
             this.updateLanguageButtons();
+            this.updateButtonColors(newLang);
         }
 
         updateLanguageButtons() {
             const desktopBtn = document.getElementById('lang-display');
             const mobileBtn = document.getElementById('lang-display-mobile');
             
+            // Mostra o idioma atual, não o próximo
+            const currentLangMap = {
+                'pt': { text: 'PT-BR', mobile: 'Português' },
+                'en': { text: 'EN', mobile: 'English' },
+                'es': { text: 'ES', mobile: 'Español' }
+            };
+            
+            const current = currentLangMap[this.currentLang] || currentLangMap['pt'];
+            
             if (desktopBtn) {
-                desktopBtn.textContent = this.currentLang === 'pt' ? 'EN' : 'PT';
+                desktopBtn.textContent = current.text;
             }
             if (mobileBtn) {
-                mobileBtn.textContent = this.currentLang === 'pt' ? 'English' : 'Português';
+                mobileBtn.textContent = current.mobile;
             }
+        }
+
+        updateButtonColors(lang) {
+            const desktopToggle = document.getElementById('lang-toggle');
+            const mobileToggle = document.getElementById('lang-toggle-mobile');
+            
+            // Cores das bandeiras conforme especificado
+            const flagColors = {
+                'pt': {
+                    // PT-BR: Verde
+                    background: '#009739',
+                    text: '#FFFFFF',
+                    border: '#009739',
+                    hoverBg: '#007A2E'
+                },
+                'en': {
+                    // Inglês: Azul
+                    background: '#3C3B6E',
+                    text: '#FFFFFF',
+                    border: '#3C3B6E',
+                    hoverBg: '#2E2D52'
+                },
+                'es': {
+                    // Espanhol: Vermelho
+                    background: '#AA151B',
+                    text: '#FFFFFF',
+                    border: '#AA151B',
+                    hoverBg: '#8B1116'
+                }
+            };
+            
+            const colors = flagColors[lang] || flagColors['pt'];
+            
+            [desktopToggle, mobileToggle].forEach(btn => {
+                if (btn) {
+                    btn.style.background = colors.background;
+                    btn.style.color = colors.text;
+                    btn.style.borderColor = colors.border;
+                    btn.style.fontWeight = '600';
+                }
+            });
         }
 
         setupLanguageToggle() {
@@ -186,11 +256,23 @@
             const mobileToggle = document.getElementById('lang-toggle-mobile');
 
             desktopToggle?.addEventListener('click', () => {
-                this.changeLanguage(this.currentLang === 'pt' ? 'en' : 'pt');
+                const nextLangMap = {
+                    'pt': 'en',
+                    'en': 'es',
+                    'es': 'pt'
+                };
+                const nextLang = nextLangMap[this.currentLang] || 'en';
+                this.changeLanguage(nextLang);
             });
 
             mobileToggle?.addEventListener('click', () => {
-                this.changeLanguage(this.currentLang === 'pt' ? 'en' : 'pt');
+                const nextLangMap = {
+                    'pt': 'en',
+                    'en': 'es',
+                    'es': 'pt'
+                };
+                const nextLang = nextLangMap[this.currentLang] || 'en';
+                this.changeLanguage(nextLang);
                 const mobileMenu = document.getElementById('mobile-menu');
                 if (mobileMenu?.classList.contains('active')) {
                     document.getElementById('mobile-menu-btn')?.click();
@@ -207,19 +289,20 @@
     class NavigationManager {
         constructor() {
             this.activeSection = '';
-            this.scrollHandler = Utils.throttle(() => this.updateActiveSection(), 16);
-            this.navbarHandler = Utils.throttle(() => this.updateNavbar(), 16);
+            this.scrollHandler = Utils.throttle(() => this.updateActiveSection(), 150);
+            this.navbarHandler = Utils.throttle(() => this.updateNavbar(), 150);
         }
 
         init() {
-            this.setupSmoothScroll();
+            this.setupNavigationScroll();
             this.setupNavbarScroll();
             this.setupActiveLinks();
             this.setupMobileMenu();
-            window.addEventListener('scroll', this.scrollHandler);
+            window.addEventListener('scroll', this.scrollHandler, { passive: true });
         }
 
-        setupSmoothScroll() {
+        setupNavigationScroll() {
+            // Navegação do menu - scroll instantâneo (efeito de troca de página)
             document.querySelectorAll('a[href^="#"]').forEach(link => {
                 link.addEventListener('click', (e) => {
                     const href = link.getAttribute('href');
@@ -228,7 +311,8 @@
                     const target = document.querySelector(href);
                     if (target) {
                         e.preventDefault();
-                        Utils.scrollToElement(target, 80);
+                        // Usa scroll instantâneo para sensação de troca de página
+                        Utils.scrollToElementInstant(target, 80);
                     }
                 });
             });
@@ -237,7 +321,7 @@
         setupNavbarScroll() {
             const navbar = document.querySelector('nav');
             if (!navbar) return;
-            window.addEventListener('scroll', this.navbarHandler);
+            window.addEventListener('scroll', this.navbarHandler, { passive: true });
         }
 
         updateNavbar() {
@@ -275,9 +359,9 @@
                     const href = link.getAttribute('href').substring(1);
                     link.classList.toggle('active', href === current);
                 });
-            }, 100);
+            }, 150);
 
-            window.addEventListener('scroll', updateActive);
+            window.addEventListener('scroll', updateActive, { passive: true });
         }
 
         setupMobileMenu() {
@@ -386,12 +470,13 @@
             const toggleVisibility = Utils.throttle(() => {
                 const scrollPos = Utils.getScrollPosition();
                 btn.classList.toggle('show', scrollPos > 300);
-            }, 100);
+            }, 150);
 
-            window.addEventListener('scroll', toggleVisibility);
+            window.addEventListener('scroll', toggleVisibility, { passive: true });
 
             btn.addEventListener('click', () => {
-                Utils.scrollToElement(document.body, 0);
+                // Mantém scroll suave para o botão voltar ao topo
+                Utils.scrollToElementSmooth(document.body, 0);
             });
         }
     }
